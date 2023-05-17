@@ -1,7 +1,8 @@
 package co.edu.uptc.presenter;
 
+import co.edu.uptc.pojos.MyRectangle;
+
 import java.awt.*;
-import java.util.ArrayList;
 
 public interface ContractPlanes {
 
@@ -13,13 +14,13 @@ public interface ContractPlanes {
     public interface Model {
         void setPresenter(Presenter presenter);
         void rectangleCLicked(Point p);
-        Point getCurrentPoint();
+        MyRectangle getCurrentPoint();
     }
 
     public interface Presenter {
         void setView(View view);
         void setModel(Model model);
         void rectangleCLicked(Point p);
-        Point getCurrentPoint();
+        MyRectangle getCurrentPoint();
     }
 }

@@ -1,5 +1,6 @@
 package co.edu.uptc.views;
 
+import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.presenter.ContractPlanes;
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +8,7 @@ import java.awt.*;
 public class PrincipalFrame extends JFrame implements ContractPlanes.View {
 
     ContractPlanes.Presenter presenter;
-    private PlanesPrincipalPanel planesPanel;
+    private RectanglesPrincipalPanel planesPanel;
 
     public PrincipalFrame() {
         super("Sistema de facturadora");
@@ -19,7 +20,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
     }
 
     private void initPanels() {
-        planesPanel = new PlanesPrincipalPanel(this);
+        planesPanel = new RectanglesPrincipalPanel(this);
         this.add(planesPanel);
         planesPanel.setVisible(true);
     }
@@ -34,7 +35,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
         presenter.rectangleCLicked(point);
     }
 
-    public Point loadPoint() {
+    public MyRectangle loadPoint() {
         return presenter.getCurrentPoint();
     }
 

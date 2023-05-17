@@ -1,8 +1,7 @@
 package co.edu.uptc.views;
 
 import co.edu.uptc.Globals.Global;
-import co.edu.uptc.model.RectangleManagerModel;
-import co.edu.uptc.pojos.Rectangle;
+import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.utils.Utils;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,15 +11,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PlanesPrincipalPanel extends JPanel {
+public class RectanglesPrincipalPanel extends JPanel {
 
     private PrincipalFrame principalFrame;
-    private Point point;
+    private MyRectangle point;
 
-    public PlanesPrincipalPanel(PrincipalFrame principalFrame) {
+    public RectanglesPrincipalPanel(PrincipalFrame principalFrame) {
         this.principalFrame = principalFrame;
         this.setLayout(new GridBagLayout());
-        point = new Point(300, 400);
+        point = new MyRectangle();
         planesChooser();
     }
 
@@ -62,7 +61,7 @@ public class PlanesPrincipalPanel extends JPanel {
 
     private void paintLetters(Graphics g){
         g.setFont(new Font(Font.SANS_SERIF, getFont().getStyle(), 15));
-        g.drawRect(point.x, point.y, 300, 300);
+        g.drawRect(point.getX(), point.getY(), 200, 200);
     }
 
 

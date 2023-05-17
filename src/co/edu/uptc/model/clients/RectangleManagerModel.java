@@ -1,6 +1,6 @@
-package co.edu.uptc.model;
+package co.edu.uptc.model.clients;
 
-import co.edu.uptc.pojos.Rectangle;
+import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.presenter.ContractPlanes;
 
 import java.awt.*;
@@ -8,10 +8,10 @@ import java.awt.*;
 public class RectangleManagerModel implements ContractPlanes.Model {
 
     private ContractPlanes.Presenter presenter;
-    private Rectangle rectangle;
+    private MyRectangle rectangle;
 
     public RectangleManagerModel(){
-        rectangle = new Rectangle();
+        rectangle = new MyRectangle();
     }
 
     @Override
@@ -27,20 +27,21 @@ public class RectangleManagerModel implements ContractPlanes.Model {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            rectangle.setRouteCoordenate(p);
+            rectangle.setX(p.x);
+            rectangle.setY(p.y);
             notifyAllList();
         }
     }
 
     @Override
-    public Point getCurrentPoint() {
+    public MyRectangle getCurrentPoint() {
         synchronized (rectangle) {
             try {
                 rectangle.wait(1);
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            Point tmp = rectangle.getRouteCoordenate();
+            MyRectangle tmp = rectangle;
             notifyAllList();
             return tmp;
         }

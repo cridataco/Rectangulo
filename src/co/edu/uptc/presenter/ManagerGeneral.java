@@ -1,6 +1,6 @@
 package co.edu.uptc.presenter;
 
-import co.edu.uptc.model.RectangleManagerModel;
+import co.edu.uptc.model.clients.RectangleManagerModel;
 import co.edu.uptc.views.PrincipalFrame;
 
 public class ManagerGeneral {
