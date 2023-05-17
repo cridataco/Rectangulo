@@ -44,4 +44,14 @@ public class MyRectangle {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return "MyRectangle{" +
+                "x=" + x +
+                ", y=" + y +
+                ", with=" + with +
+                ", height=" + height +
+                '}';
+    }
 }

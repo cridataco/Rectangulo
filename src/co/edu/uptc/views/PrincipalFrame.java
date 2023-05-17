@@ -39,6 +39,10 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
         return presenter.getCurrentPoint();
     }
 
+    public void setRectangle(MyRectangle myRectangle){
+
+    }
+
     @Override
     public void start() {
         this.setVisible(true);

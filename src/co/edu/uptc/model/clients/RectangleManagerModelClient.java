@@ -5,12 +5,12 @@ import co.edu.uptc.presenter.ContractPlanes;
 
 import java.awt.*;
 
-public class RectangleManagerModel implements ContractPlanes.Model {
+public class RectangleManagerModelClient implements ContractPlanes.Model {
 
     private ContractPlanes.Presenter presenter;
     private MyRectangle rectangle;
 
-    public RectangleManagerModel(){
+    public RectangleManagerModelClient() {
         rectangle = new MyRectangle();
     }
 
@@ -41,15 +41,30 @@ public class RectangleManagerModel implements ContractPlanes.Model {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            MyRectangle tmp = rectangle;
+            MyRectangle tmp = this.rectangle;
             notifyAllList();
             return tmp;
         }
+    }
+
+    public void loadRecangle(MyRectangle rectangle) {
+      /*  synchronized (rectangle) {
+            try {
+                rectangle.wait(1);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }*/
+            this.rectangle = rectangle;
+        //}
     }
 
     private void notifyAllList() {
         synchronized (rectangle) {
             rectangle.notifyAll();
         }
+    }
+
+    public void loadInfo(){
+        Client client = new Client();
     }
 }

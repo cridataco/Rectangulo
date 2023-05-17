@@ -61,7 +61,7 @@ public class RectanglesPrincipalPanel extends JPanel {
 
     private void paintLetters(Graphics g){
         g.setFont(new Font(Font.SANS_SERIF, getFont().getStyle(), 15));
-        g.drawRect(point.getX(), point.getY(), 200, 200);
+        g.drawRect(point.getX(), point.getY(), point.getWith(), point.getHeight());
     }
 
 
