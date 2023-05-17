@@ -15,15 +15,14 @@ public class Client {
     Connection conn;
     DataOutputStream dataOutputStream;
     DataInputStream dataInputStream;
-    private RectangleManagerModelClient rectangleManagerModel;
     private Gson gson;
     private MyRectangle rectangle;
 
     PrincipalFrame principalFrame;
+    private RectangleManagerModelClient rectangleManagerModelClient;
 
 
     public Client() {
-        rectangleManagerModel = new RectangleManagerModelClient();
         gson = new Gson();
         principalFrame =  new PrincipalFrame();
         init();
@@ -38,7 +37,7 @@ public class Client {
                 aux = dataInputStream.readUTF();
                 //System.out.println(aux);
                 rectangle = gson.fromJson(aux, MyRectangle.class);
-                rectangleManagerModel.loadRecangle(rectangle);
+                rectangleManagerModelClient.loadRecangle(rectangle);
             }
 
         } catch (IOException e) {
@@ -61,5 +60,9 @@ public class Client {
         conn.setPort(Global.port);
         conn.setType("client");
         conn.connectServer();
+    }
+
+    public void setInstance(RectangleManagerModelClient rectangleManagerModelClient){
+        this.rectangleManagerModelClient = rectangleManagerModelClient;
     }
 }

@@ -66,5 +66,6 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
 
     public void loadInfo(){
         Client client = new Client();
+        client.setInstance(this);
     }
 }
