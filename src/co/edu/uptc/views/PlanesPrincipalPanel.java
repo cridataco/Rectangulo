@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class PlanesPrincipalPanel extends JPanel {
 
-    private RectangleManagerModel rectangle;
     private PrincipalFrame principalFrame;
     private Point point;
 
@@ -56,7 +55,7 @@ public class PlanesPrincipalPanel extends JPanel {
     }
 
     private void paintPlanes(Graphics g) {
-        g.setColor(new Color(178, 218, 250));
+        g.setColor(new Color(230, 100, 100));
         super.paintComponent(g);
         paintLetters(g);
     }
@@ -89,7 +88,7 @@ public class PlanesPrincipalPanel extends JPanel {
             @Override
             public void mouseDragged(MouseEvent mouseEvent) {
                 if (planeChoosed[0] != null) {
-                    principalFrame.rectangleCLicked(planeChoosed[0]);
+                    principalFrame.rectangleCLicked(mouseEvent.getPoint());
                 }
             }
             @Override
