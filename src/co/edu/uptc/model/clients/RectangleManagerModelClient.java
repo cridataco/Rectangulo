@@ -57,7 +57,6 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
                 throw new RuntimeException(ex);
             }*/
             this.rectangle = rectangle;
-       // System.out.println(rectangle.toString());
         //}
     }
 

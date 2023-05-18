@@ -6,7 +6,7 @@ public class MyRectangle {
 
     private int x;
     private int y;
-    private int with;
+    private int width;
     private int height;
 
     public MyRectangle(){
@@ -30,19 +30,11 @@ public class MyRectangle {
     }
 
     public int getWith() {
-        return with;
-    }
-
-    public void setWith(int with) {
-        this.with = with;
+        return width;
     }
 
     public int getHeight() {
         return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     @Override
@@ -50,7 +42,7 @@ public class MyRectangle {
         return "MyRectangle{" +
                 "x=" + x +
                 ", y=" + y +
-                ", with=" + with +
+                ", with=" + width +
                 ", height=" + height +
                 '}';
     }

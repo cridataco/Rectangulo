@@ -17,8 +17,6 @@ public class Client {
     DataInputStream dataInputStream;
     private Gson gson;
     private MyRectangle rectangle;
-
-    PrincipalFrame principalFrame;
     private RectangleManagerModelClient rectangleManagerModelClient;
 
 
@@ -48,10 +46,6 @@ public class Client {
             }
         }
     }
-
-    /*public void setRectangle(MyRectangle myRectangle){
-        principalFrame.loadPoint(myRectangle);
-    }*/
 
     public void init() {
         conn = new Connection();
