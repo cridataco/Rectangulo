@@ -9,9 +9,11 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
 
     private ContractPlanes.Presenter presenter;
     private MyRectangle rectangle;
+    private Client client;
 
     public RectangleManagerModelClient() {
         rectangle = new MyRectangle();
+        loadInfo();
     }
 
     @Override
@@ -55,6 +57,7 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
                 throw new RuntimeException(ex);
             }*/
             this.rectangle = rectangle;
+       // System.out.println(rectangle.toString());
         //}
     }
 
@@ -65,7 +68,10 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
     }
 
     public void loadInfo(){
-        Client client = new Client();
-        client.setInstance(this);
+        client = new Client(this);
+    }
+
+    public void initRecive(){
+        client.recive();
     }
 }

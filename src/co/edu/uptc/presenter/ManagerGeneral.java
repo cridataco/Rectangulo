@@ -13,6 +13,7 @@ public class ManagerGeneral {
         view = new PrincipalFrame();
         if (Global.whoAmI.equals("client")) {
             modelPlanes = new RectangleManagerModelClient();
+
         }
         //if{
     //    modelPlanes = new RectangleManagerModelSErver();
@@ -24,12 +25,9 @@ public class ManagerGeneral {
         presenter.setModel(modelPlanes);
     }
 
-    public void runClient(){
-
-    }
-
     public void runProject() {
         createMVP();
         view.start();
+        modelPlanes.initRecive();
     }
 }

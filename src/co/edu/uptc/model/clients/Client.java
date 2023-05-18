@@ -22,11 +22,10 @@ public class Client {
     private RectangleManagerModelClient rectangleManagerModelClient;
 
 
-    public Client() {
+    public Client(RectangleManagerModelClient rectangleManagerModelClient) {
+        setInstance(rectangleManagerModelClient);
         gson = new Gson();
-        principalFrame =  new PrincipalFrame();
         init();
-        recive();
     }
 
     public void recive() {

@@ -21,6 +21,7 @@ public class RectanglesPrincipalPanel extends JPanel {
         this.setLayout(new GridBagLayout());
         point = new MyRectangle();
         planesChooser();
+        System.out.println("incia");
     }
 
     private void addPlane(Graphics g, Image image, int xPosition, int yPosition) {

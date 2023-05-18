@@ -15,6 +15,7 @@ public interface ContractPlanes {
         void setPresenter(Presenter presenter);
         void rectangleCLicked(Point p);
         MyRectangle getCurrentPoint();
+        void initRecive();
     }
 
     public interface Presenter {

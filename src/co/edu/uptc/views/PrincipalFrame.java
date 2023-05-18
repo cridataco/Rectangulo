@@ -11,7 +11,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
     private RectanglesPrincipalPanel planesPanel;
 
     public PrincipalFrame() {
-        super("Sistema de facturadora");
+        super("Cliente Servidor");
         this.setSize(1100, 700);
         initPanels();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +29,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
     public void setPresenter(ContractPlanes.Presenter presenter) {
         this.presenter = presenter;
         planesPanel.runFPSOfThePanel();
+
     }
 
     public void rectangleCLicked(Point point){
