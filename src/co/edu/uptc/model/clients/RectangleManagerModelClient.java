@@ -8,11 +8,11 @@ import java.awt.*;
 public class RectangleManagerModelClient implements ContractPlanes.Model {
 
     private ContractPlanes.Presenter presenter;
-    private MyRectangle rectangle;
+    private ComponentPackage componentPackage;
     private Client client;
 
     public RectangleManagerModelClient() {
-        rectangle = new MyRectangle();
+        componentPackage = new ComponentPackage();
         loadInfo();
     }
 
@@ -23,27 +23,28 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
 
     @Override
     public void rectangleCLicked(Point p) {
-        synchronized (rectangle) {
+        synchronized (componentPackage) {
             try {
-                rectangle.wait(1);
+                componentPackage.wait(1);
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            rectangle.setX(p.x);
-            rectangle.setY(p.y);
+            componentPackage.getFigureInformation().getRectangle().setX(p.x);
+            componentPackage.getFigureInformation().getRectangle().setY(p.y);
+
             notifyAllList();
         }
     }
 
     @Override
-    public MyRectangle getCurrentPoint() {
-        synchronized (rectangle) {
+    public ComponentPackage getCurrentPoint() {
+        synchronized (componentPackage) {
             try {
-                rectangle.wait(1);
+                componentPackage.wait(1);
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            MyRectangle tmp = this.rectangle;
+            ComponentPackage tmp = this.componentPackage;
             notifyAllList();
             return tmp;
         }
@@ -56,13 +57,17 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }*/
-            this.rectangle = rectangle;
+           // this.rectangle = rectangle;
         //}
     }
 
+    public void loadComponentPackage(ComponentPackage componentPackage){
+        this.componentPackage = componentPackage;
+    }
+
     private void notifyAllList() {
-        synchronized (rectangle) {
-            rectangle.notifyAll();
+        synchronized (componentPackage) {
+            componentPackage.notifyAll();
         }
     }
 

@@ -16,7 +16,7 @@ public class Client {
     DataOutputStream dataOutputStream;
     DataInputStream dataInputStream;
     private Gson gson;
-    private MyRectangle rectangle;
+    private ComponentPackage componentPackage;
     private RectangleManagerModelClient rectangleManagerModelClient;
 
 
@@ -33,8 +33,8 @@ public class Client {
             while (true) {
                 aux = dataInputStream.readUTF();
                 //System.out.println(aux);
-                rectangle = gson.fromJson(aux, MyRectangle.class);
-                rectangleManagerModelClient.loadRecangle(rectangle);
+                componentPackage = gson.fromJson(aux, ComponentPackage.class);
+                rectangleManagerModelClient.loadComponentPackage(componentPackage);
             }
 
         } catch (IOException e) {

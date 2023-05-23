@@ -1,5 +1,6 @@
 package co.edu.uptc.views;
 
+import co.edu.uptc.model.clients.ComponentPackage;
 import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.presenter.ContractPlanes;
 import javax.swing.*;
@@ -36,7 +37,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
         presenter.rectangleCLicked(point);
     }
 
-    public MyRectangle loadPoint() {
+    public ComponentPackage loadPoint() {
         return presenter.getCurrentPoint();
     }
 

@@ -1,5 +1,6 @@
 package co.edu.uptc.presenter;
 
+import co.edu.uptc.model.clients.ComponentPackage;
 import co.edu.uptc.pojos.MyRectangle;
 
 import java.awt.*;
@@ -26,7 +27,7 @@ public class Presenter implements ContractPlanes.Presenter {
     }
 
     @Override
-    public MyRectangle getCurrentPoint() {
+    public ComponentPackage getCurrentPoint() {
         return model.getCurrentPoint();
     }
 

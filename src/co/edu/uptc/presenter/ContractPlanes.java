@@ -1,5 +1,6 @@
 package co.edu.uptc.presenter;
 
+import co.edu.uptc.model.clients.ComponentPackage;
 import co.edu.uptc.pojos.MyRectangle;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ public interface ContractPlanes {
     public interface Model {
         void setPresenter(Presenter presenter);
         void rectangleCLicked(Point p);
-        MyRectangle getCurrentPoint();
+        ComponentPackage getCurrentPoint();
         void initRecive();
     }
 
@@ -22,6 +23,6 @@ public interface ContractPlanes {
         void setView(View view);
         void setModel(Model model);
         void rectangleCLicked(Point p);
-        MyRectangle getCurrentPoint();
+        ComponentPackage getCurrentPoint();
     }
 }

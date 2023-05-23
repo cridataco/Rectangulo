@@ -10,7 +10,6 @@ public class Main {
             Global.port = Integer.parseInt(parameters[2]);
             ManagerGeneral managerGeneral = new ManagerGeneral();
             managerGeneral.runProject();
-
         }
         else {
             System.out.println("help");

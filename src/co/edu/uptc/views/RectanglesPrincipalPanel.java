@@ -1,25 +1,21 @@
 package co.edu.uptc.views;
 
-import co.edu.uptc.Globals.Global;
-import co.edu.uptc.pojos.MyRectangle;
+import co.edu.uptc.model.clients.ComponentPackage;
 import co.edu.uptc.utils.Utils;
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class RectanglesPrincipalPanel extends JPanel {
 
     private PrincipalFrame principalFrame;
-    private MyRectangle point;
+    private ComponentPackage point;
 
     public RectanglesPrincipalPanel(PrincipalFrame principalFrame) {
         this.principalFrame = principalFrame;
         this.setLayout(new GridBagLayout());
-        point = new MyRectangle();
+        point = new ComponentPackage();
         planesChooser();
     }
 
@@ -47,14 +43,18 @@ public class RectanglesPrincipalPanel extends JPanel {
     }
 
     private void paintPlanes(Graphics g) {
-        g.setColor(new Color(230, 100, 100));
         super.paintComponent(g);
-        paintLetters(g);
+        if(point.getPanelInformation() != null){
+            g.setColor(new Color(point.getPanelInformation().getColor()));
+            g.fillRect(0,0,1100, 700);
+            paintLetters(g);
+        }
     }
 
     private void paintLetters(Graphics g){
+        g.setColor(new Color(point.getFigureInformation().getColor()));
         g.setFont(new Font(Font.SANS_SERIF, getFont().getStyle(), 15));
-        g.drawRect(point.getX(), point.getY(), point.getWith(), point.getHeight());
+        g.drawRect(point.getFigureInformation().getRectangle().getX(), point.getFigureInformation().getRectangle().getY(), point.getFigureInformation().getRectangle().getWith(), point.getFigureInformation().getRectangle().getHeight());
     }
 
 
