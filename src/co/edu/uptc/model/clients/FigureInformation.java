@@ -4,19 +4,15 @@ import co.edu.uptc.pojos.MyRectangle;
 
 public class FigureInformation {
 
-    private MyRectangle rectangle;
+    private int rectangle;
     private int Color;
 
     public FigureInformation(){
 
     }
 
-    public MyRectangle getRectangle() {
+    public int getRectangle() {
         return rectangle;
-    }
-
-    public void setRectangle(MyRectangle rectangle) {
-        this.rectangle = rectangle;
     }
 
     public int getColor() {

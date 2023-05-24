@@ -29,8 +29,8 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            componentPackage.getFigureInformation().getRectangle().setX(p.x);
-            componentPackage.getFigureInformation().getRectangle().setY(p.y);
+            /*componentPackage.getFigureInformation().getRectangle().setX(p.x);
+            componentPackage.getFigureInformation().getRectangle().setY(p.y);*/
 
             notifyAllList();
         }

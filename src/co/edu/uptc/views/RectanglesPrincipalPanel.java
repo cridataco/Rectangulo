@@ -1,6 +1,8 @@
 package co.edu.uptc.views;
 
+import co.edu.uptc.model.clients.BytesMapper;
 import co.edu.uptc.model.clients.ComponentPackage;
+import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.utils.Utils;
 
 import javax.swing.*;
@@ -11,11 +13,14 @@ public class RectanglesPrincipalPanel extends JPanel {
 
     private PrincipalFrame principalFrame;
     private ComponentPackage point;
+    private BytesMapper bytesMapper;
+    private MyRectangle rectangle;
 
     public RectanglesPrincipalPanel(PrincipalFrame principalFrame) {
         this.principalFrame = principalFrame;
         this.setLayout(new GridBagLayout());
         point = new ComponentPackage();
+        bytesMapper = new BytesMapper();
         planesChooser();
     }
 
@@ -36,6 +41,7 @@ public class RectanglesPrincipalPanel extends JPanel {
 
     private void loadPoint() {
         this.point = principalFrame.loadPoint();
+        rectangle = bytesMapper.getRectangle(point.getFigureInformation().getColor());
     }
 
     public void paintComponent(Graphics g) {
@@ -54,7 +60,7 @@ public class RectanglesPrincipalPanel extends JPanel {
     private void paintLetters(Graphics g){
         g.setColor(new Color(point.getFigureInformation().getColor()));
         g.setFont(new Font(Font.SANS_SERIF, getFont().getStyle(), 15));
-        g.drawRect(point.getFigureInformation().getRectangle().getX(), point.getFigureInformation().getRectangle().getY(), point.getFigureInformation().getRectangle().getWith(), point.getFigureInformation().getRectangle().getHeight());
+        g.drawRect(rectangle.getX(), rectangle.getY(), rectangle.getWith(), rectangle.getHeight());
     }
 
 

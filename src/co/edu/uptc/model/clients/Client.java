@@ -32,7 +32,7 @@ public class Client {
             String aux = "";
             while (true) {
                 aux = dataInputStream.readUTF();
-                //System.out.println(aux);
+                System.out.println(aux);
                 componentPackage = gson.fromJson(aux, ComponentPackage.class);
                 rectangleManagerModelClient.loadComponentPackage(componentPackage);
             }
