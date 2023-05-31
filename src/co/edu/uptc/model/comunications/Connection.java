@@ -13,7 +13,6 @@ public class Connection {
     private int port;
 
     public Connection() {
-
     }
 
     public void connectServer() {
@@ -21,6 +20,10 @@ public class Connection {
             switch (type) {
                 case "client": {
                     socket1 = new Socket(host, port);
+                    break;
+                }
+                case "server": {
+                    serverSocket = new ServerSocket(port);
                     break;
                 }
             }
@@ -54,7 +57,6 @@ public class Connection {
     }
 
     public void send(String value){
-        //cs.
     }
 
     public String recive(String value){

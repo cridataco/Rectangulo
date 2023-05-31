@@ -2,13 +2,13 @@ package co.edu.uptc.views;
 
 import co.edu.uptc.model.clients.ComponentPackage;
 import co.edu.uptc.pojos.MyRectangle;
-import co.edu.uptc.presenter.ContractPlanes;
+import co.edu.uptc.presenter.ContractSocket;
 import javax.swing.*;
 import java.awt.*;
 
-public class PrincipalFrame extends JFrame implements ContractPlanes.View {
+public class PrincipalFrame extends JFrame implements ContractSocket.View {
 
-    ContractPlanes.Presenter presenter;
+    ContractSocket.Presenter presenter;
     private RectanglesPrincipalPanel planesPanel;
 
     public PrincipalFrame() {
@@ -27,7 +27,7 @@ public class PrincipalFrame extends JFrame implements ContractPlanes.View {
     }
 
     @Override
-    public void setPresenter(ContractPlanes.Presenter presenter) {
+    public void setPresenter(ContractSocket.Presenter presenter) {
         this.presenter = presenter;
         planesPanel.runFPSOfThePanel();
 

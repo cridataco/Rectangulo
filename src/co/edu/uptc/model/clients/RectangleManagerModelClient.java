@@ -1,13 +1,13 @@
 package co.edu.uptc.model.clients;
 
 import co.edu.uptc.pojos.MyRectangle;
-import co.edu.uptc.presenter.ContractPlanes;
+import co.edu.uptc.presenter.ContractSocket;
 
 import java.awt.*;
 
-public class RectangleManagerModelClient implements ContractPlanes.Model {
+public class RectangleManagerModelClient implements ContractSocket.Model {
 
-    private ContractPlanes.Presenter presenter;
+    private ContractSocket.Presenter presenter;
     private ComponentPackage componentPackage;
     private Client client;
 
@@ -17,7 +17,7 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
     }
 
     @Override
-    public void setPresenter(ContractPlanes.Presenter presenter) {
+    public void setPresenter(ContractSocket.Presenter presenter) {
         this.presenter = presenter;
     }
 
@@ -31,7 +31,6 @@ public class RectangleManagerModelClient implements ContractPlanes.Model {
             }
             /*componentPackage.getFigureInformation().getRectangle().setX(p.x);
             componentPackage.getFigureInformation().getRectangle().setY(p.y);*/
-
             notifyAllList();
         }
     }

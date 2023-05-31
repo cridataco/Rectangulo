@@ -30,7 +30,7 @@ public class RectanglesPrincipalPanel extends JPanel {
             @Override
             public void run() {
                 while (running) {
-                    loadPoint();
+                    //loadPoint();
                     repaint();
                     new Utils().sleep(50);
                 }
