@@ -1,38 +1,31 @@
 package co.edu.uptc.model.parcial;
 
 public class ManagerInfomartion {
+     FigureInformation figureInformation;
+     PanelInformation panelInformation;
+     FrameInformation frameInformation;
 
-    private figureInformation figureInformations;
-    private panelInformation panelInformations;
-    private frameInformation frameInformations;
+     public FigureInformation getFigureInformation() {
+          return figureInformation;
+     }
 
-    public ManagerInfomartion(){
-        figureInformations = new figureInformation();
-        panelInformations = new panelInformation();
-        frameInformations = new frameInformation();
-    }
+     public void setFigureInformation(FigureInformation figureInformation) {
+          this.figureInformation = figureInformation;
+     }
 
-    public figureInformation getFigureInformations() {
-        return figureInformations;
-    }
+     public PanelInformation getPanelInformation() {
+          return panelInformation;
+     }
 
-    public void setFigureInformations(figureInformation figureInformations) {
-        this.figureInformations = figureInformations;
-    }
+     public void setPanelInformation(PanelInformation panelInformation) {
+          this.panelInformation = panelInformation;
+     }
 
-    public panelInformation getPanelInformations() {
-        return panelInformations;
-    }
+     public FrameInformation getFrameInformation() {
+          return frameInformation;
+     }
 
-    public void setPanelInformations(panelInformation panelInformations) {
-        this.panelInformations = panelInformations;
-    }
-
-    public frameInformation getFrameInformations() {
-        return frameInformations;
-    }
-
-    public void setFrameInformations(frameInformation frameInformations) {
-        this.frameInformations = frameInformations;
-    }
+     public void setFrameInformation(FrameInformation frameInformation) {
+          this.frameInformation = frameInformation;
+     }
 }

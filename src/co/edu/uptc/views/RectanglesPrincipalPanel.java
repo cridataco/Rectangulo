@@ -2,6 +2,7 @@ package co.edu.uptc.views;
 
 import co.edu.uptc.model.clients.BytesMapper;
 import co.edu.uptc.model.clients.ComponentPackage;
+import co.edu.uptc.model.parcial.ManagerInfomartion;
 import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.utils.Utils;
 
@@ -13,6 +14,7 @@ public class RectanglesPrincipalPanel extends JPanel {
 
     private PrincipalFrame principalFrame;
     private ComponentPackage point;
+    private ManagerInfomartion information;
     private BytesMapper bytesMapper;
     private MyRectangle rectangle;
 
@@ -20,6 +22,7 @@ public class RectanglesPrincipalPanel extends JPanel {
         this.principalFrame = principalFrame;
         this.setLayout(new GridBagLayout());
         point = new ComponentPackage();
+        information = new ManagerInfomartion();
         bytesMapper = new BytesMapper();
         planesChooser();
     }
@@ -30,7 +33,10 @@ public class RectanglesPrincipalPanel extends JPanel {
             @Override
             public void run() {
                 while (running) {
-                    //loadPoint();
+                    if(information != null) {
+                        loadPoint();
+                    }
+                    //System.out.println(bytesMapper.getOneNumber());
                     repaint();
                     new Utils().sleep(50);
                 }
@@ -40,29 +46,22 @@ public class RectanglesPrincipalPanel extends JPanel {
     }
 
     private void loadPoint() {
-        this.point = principalFrame.loadPoint();
-        rectangle = bytesMapper.getRectangle(point.getFigureInformation().getColor());
+            this.information = principalFrame.getInformation();
+            if(this.information.getFigureInformation() != null) {
+                bytesMapper.setNumber(information.getFigureInformation().getRectangle());
+            }
+        //rectangle = bytesMapper.getRectangle(point.getFigureInformation().getColor());
     }
 
     public void paintComponent(Graphics g) {
-        paintPlanes(g);
-    }
-
-    private void paintPlanes(Graphics g) {
         super.paintComponent(g);
-        if(point.getPanelInformation() != null){
-            g.setColor(new Color(point.getPanelInformation().getColor()));
-            g.fillRect(0,0,1100, 700);
-            paintLetters(g);
+        if(information.getPanelInformation() != null) {
+            g.setColor(new Color(information.getPanelInformation().getColor()));
+        }
+        if(information.getFigureInformation() != null) {
+             g.drawRect(bytesMapper.getOneNumber(), bytesMapper.getTwoNumber(), bytesMapper.getTherdNumber(), bytesMapper.getFourNumber());
         }
     }
-
-    private void paintLetters(Graphics g){
-        g.setColor(new Color(point.getFigureInformation().getColor()));
-        g.setFont(new Font(Font.SANS_SERIF, getFont().getStyle(), 15));
-        g.drawRect(rectangle.getX(), rectangle.getY(), rectangle.getWith(), rectangle.getHeight());
-    }
-
 
     private void planesChooser() {
         final Point[] planeChoosed = {null};

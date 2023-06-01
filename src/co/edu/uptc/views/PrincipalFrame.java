@@ -1,6 +1,7 @@
 package co.edu.uptc.views;
 
 import co.edu.uptc.model.clients.ComponentPackage;
+import co.edu.uptc.model.parcial.ManagerInfomartion;
 import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.presenter.ContractSocket;
 import javax.swing.*;
@@ -43,6 +44,15 @@ public class PrincipalFrame extends JFrame implements ContractSocket.View {
 
     public void setRectangle(MyRectangle myRectangle){
 
+    }
+
+    public ManagerInfomartion getInformation(){
+        ManagerInfomartion managerInfomartion = presenter.getInformation();
+        if(managerInfomartion.getFrameInformation() != null) {
+            this.setSize(new Dimension(managerInfomartion.getFrameInformation().getWidth(), managerInfomartion.getFrameInformation().getHeight()));
+            this.setLocation(managerInfomartion.getFrameInformation().getX(), managerInfomartion.getFrameInformation().getY());
+        }
+        return managerInfomartion;
     }
 
     @Override

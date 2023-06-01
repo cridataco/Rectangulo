@@ -25,14 +25,12 @@ public class RectangleManagerModelClient implements ContractSocket.Model {
 
     @Override
     public void rectangleCLicked(Point p) {
-        synchronized (componentPackage) {
+        synchronized (managerInfomartion) {
             try {
-                componentPackage.wait(1);
+                managerInfomartion.wait(1);
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            /*componentPackage.getFigureInformation().getRectangle().setX(p.x);
-            componentPackage.getFigureInformation().getRectangle().setY(p.y);*/
             notifyAllList();
         }
     }
@@ -51,19 +49,8 @@ public class RectangleManagerModelClient implements ContractSocket.Model {
         }
     }
 
-    public void loadRecangle(MyRectangle rectangle) {
-      /*  synchronized (rectangle) {
-            try {
-                rectangle.wait(1);
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }*/
-           // this.rectangle = rectangle;
-        //}
-    }
-
-    public void loadComponentPackage(ComponentPackage componentPackage){
-        this.componentPackage = componentPackage;
+    public void loadComponentPackage(ManagerInfomartion managerInfomartion){
+        this.managerInfomartion = managerInfomartion;
     }
 
     private void notifyAllList() {
@@ -77,6 +64,11 @@ public class RectangleManagerModelClient implements ContractSocket.Model {
     }
 
     public void initRecive(){
-        client.recive();
+        client.getInfo();
+    }
+
+    @Override
+    public ManagerInfomartion getInformation() {
+        return managerInfomartion;
     }
 }

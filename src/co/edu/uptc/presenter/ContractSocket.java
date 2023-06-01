@@ -1,6 +1,7 @@
 package co.edu.uptc.presenter;
 
 import co.edu.uptc.model.clients.ComponentPackage;
+import co.edu.uptc.model.parcial.ManagerInfomartion;
 
 import java.awt.*;
 
@@ -16,6 +17,10 @@ public interface ContractSocket {
         void rectangleCLicked(Point p);
         ComponentPackage getCurrentPoint();
         void initRecive();
+
+
+
+        ManagerInfomartion getInformation();
     }
 
     interface ModelServer{
@@ -32,5 +37,9 @@ public interface ContractSocket {
         void setServerModel(ModelServer model);
         void rectangleCLicked(Point p);
         ComponentPackage getCurrentPoint();
+
+
+
+        ManagerInfomartion getInformation();
     }
 }

@@ -1,6 +1,8 @@
 package co.edu.uptc.presenter;
 
 import co.edu.uptc.model.clients.ComponentPackage;
+import co.edu.uptc.model.parcial.ManagerInfomartion;
+
 import java.awt.*;
 
 public class Presenter implements ContractSocket.Presenter {
@@ -32,5 +34,10 @@ public class Presenter implements ContractSocket.Presenter {
     @Override
     public ComponentPackage getCurrentPoint() {
         return null;//model.getCurrentPoint();
+    }
+
+    @Override
+    public ManagerInfomartion getInformation() {
+        return model.getInformation();
     }
 }
