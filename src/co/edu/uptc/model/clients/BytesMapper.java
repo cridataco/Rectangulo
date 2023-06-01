@@ -47,4 +47,25 @@ public class BytesMapper {
         setNumber(number);
         return converRetangle();
     }
+
+    public static int extraerBits(int numero, int posicion, int numBits) {
+        int mascara = (1 << numBits) - 1;  // Crear la máscara de bits
+        int resultado = (numero >> posicion) & mascara;  // Aplicar la máscara y desplazamiento
+        return resultado;
+    }
+
+
+
+
+
+
+
+
+
+
+   /* numero: Es el número entero del cual deseas extraer los bits.
+
+    posicion: Es la posición desde la cual deseas extraer los bits. La posición más baja es 0, que es el bit menos significativo.
+
+    numBits: Es el número de bits que deseas extraer.*/
 }
