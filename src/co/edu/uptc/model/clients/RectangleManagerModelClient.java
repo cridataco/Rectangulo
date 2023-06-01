@@ -1,5 +1,6 @@
 package co.edu.uptc.model.clients;
 
+import co.edu.uptc.model.parcial.ManagerInfomartion;
 import co.edu.uptc.pojos.MyRectangle;
 import co.edu.uptc.presenter.ContractSocket;
 
@@ -9,10 +10,11 @@ public class RectangleManagerModelClient implements ContractSocket.Model {
 
     private ContractSocket.Presenter presenter;
     private ComponentPackage componentPackage;
+    private ManagerInfomartion managerInfomartion;
     private Client client;
 
     public RectangleManagerModelClient() {
-        componentPackage = new ComponentPackage();
+        managerInfomartion = new ManagerInfomartion();
         loadInfo();
     }
 
